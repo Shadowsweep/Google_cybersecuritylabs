@@ -12,26 +12,15 @@ Before installing Suricata, ensure that you have access to a Google Colab notebo
 
    ```bash
    sudo apt install suricata
-Check Suricata Installation:
-
-After the installation is complete, you can check the Suricata version by running the following command:
-
-  ```bash
+3. **Now to check installed**
+    ```bash
    suricata
-## Install tcpdump:
+4. **Installing tcpdump**
+    ```bash
+   sudo apt install tcpdump
 
- ## To enhance network monitoring capabilities, you can install tcpdump using the following command:
-
- ```bash
-
-sudo apt install tcpdump
-Check Installations
-To verify the installations, run the following commands:
-
- ```bash
-
-   suricata --version
-This command should display the installed Suricata version.
-
- ```bash
-   tcpdump --version
+5. **Check list of installed items**
+   ```bash
+   list --installed 
+   
+   
