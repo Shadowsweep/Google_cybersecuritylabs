@@ -16,24 +16,22 @@ Check Suricata Installation:
 
 After the installation is complete, you can check the Suricata version by running the following command:
 
-bash
-Copy code
-suricata
-Install tcpdump:
+  ```bash
+   suricata
+## Install tcpdump:
 
-To enhance network monitoring capabilities, you can install tcpdump using the following command:
+ ## To enhance network monitoring capabilities, you can install tcpdump using the following command:
 
-bash
-Copy code
+ ```bash
+
 sudo apt install tcpdump
 Check Installations
 To verify the installations, run the following commands:
 
-bash
-Copy code
+ ```bash
+
    suricata --version
 This command should display the installed Suricata version.
 
-bash
-Copy code
+ ```bash
    tcpdump --version
