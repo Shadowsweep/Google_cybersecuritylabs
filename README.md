@@ -19,7 +19,11 @@ Before installing Suricata, ensure that you have access to a Google Colab notebo
     ```bash
    sudo apt install tcpdump
 
-5. **Check list of installed items**
+5. **Uninstalling tcpdump**
+    ```bash
+   sudo apt remove tcpdump
+
+6. **Check list of installed items**
    ```bash
    list --installed 
    
