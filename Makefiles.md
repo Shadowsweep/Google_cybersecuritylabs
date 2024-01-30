@@ -4,7 +4,7 @@
 
 To create a directory named "logs", use the following command:
 
-    ```bash
+    
     mkdir logs
 
 
