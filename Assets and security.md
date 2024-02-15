@@ -18,3 +18,142 @@ Named after its MIT creators, Rivest, Shamir, and Adleman, RSA stands out as one
 ## Digital Signature Algorithm (DSA)
 
 Introduced by NIST in the early 1990s, the Digital Signature Algorithm (DSA) is a standard asymmetric algorithm. DSA, like RSA, generates key lengths of 2,048 bits. Widely used in conjunction with RSA in public key infrastructure, DSA plays a vital role in ensuring the integrity and authenticity of digital signatures.
+
+
+![image](https://github.com/Shadowsweep/Google_cybersecuritylabs/assets/122604770/37078216-6751-42fd-b79b-0c207215f5ad)
+
+## The evolution of hash functions
+Hash functions are important controls that are part of every company's security strategy. Hashing is widely used for authentication and non-repudiation, the concept that the authenticity of information can’t be denied.
+
+Previously, you learned that hash functions are algorithms that produce a code that can't be decrypted. Hash functions convert information into a unique value that can then be used to determine its integrity. In this reading, you’ll learn about the origins of hash functions and how they’ve changed over time.
+![image](https://github.com/Shadowsweep/Google_cybersecuritylabs/assets/122604770/2dc80578-9669-4be3-89d5-ab0b3b32c433)
+
+# Origins of Hashing
+
+Hash functions, a staple in computing since its early days, originated as a means to expedite data search. These algorithms were crafted to represent data of varying sizes through compact, fixed-size values known as digests. Utilizing hash tables—a data structure for storing and referencing hash values—computers found an enhanced and secure method to manage data.
+
+Among the early hash functions, Message Digest 5 (MD5) stands out. Developed by Professor Ronald Rivest of MIT in the early 1990s, MD5 served to verify the integrity of files sent over networks. Operating by converting data into a 128-bit value, MD5 became a go-to for tasks ranging from validating single emails to confirming the integrity of entire application source codes.
+
+In the realm of bits—each representing a binary 0 or 1 on a computer—MD5's hash values manifested as strings of 32 characters in a hash table. Any alteration in the source file resulted in a completely new hash value. However, the quest for heightened security led practitioners to recognize vulnerabilities in the 128-bit digests, prompting a continuous evolution in hashing practices.
+
+Here is an example of how plaintext gets turned into hash values:
+![image](https://github.com/Shadowsweep/Google_cybersecuritylabs/assets/122604770/4ebda07b-f90c-4711-a29c-690a52a0696c)
+
+# Summary: Hash Collisions and Next-Generation Hashing
+
+Hash collisions, a shared vulnerability among hash functions, arise from mapping any input into a fixed-size alphanumeric value. This limitation, exemplified in MD5 with its 32-character output, makes it susceptible to instances where different inputs yield the same hash value. Hash collisions pose a security risk as attackers can exploit them for fraudulent impersonation, compromising authentication systems.
+
+To address this issue, the evolution of hashing led to the development of Secure Hashing Algorithms (SHAs). These algorithms, approved by the National Institute of Standards and Technology (NIST), generate longer hash values, mitigating the risk of collisions. The SHA family includes SHA-1, SHA-224, SHA-256, SHA-384, and SHA-512. While these algorithms are considered collision-resistant, it's essential to acknowledge their susceptibility to other potential exploits. 
+
+---
+
+---
+
+## Hash Collisions and Next-Generation Hashing
+
+### Hash Collisions
+
+Hash collisions, a common vulnerability in hash functions, occur when different inputs produce the same fixed-size alphanumeric hash value. MD5, with its 32-character output, exemplifies this vulnerability. Such collisions pose a risk to authentication systems, allowing attackers to impersonate authentic data.
+
+### Next-Generation Hashing
+
+To address the vulnerability of hash collisions, Secure Hashing Algorithms (SHAs) were introduced. Approved by the National Institute of Standards and Technology (NIST), these algorithms generate longer hash values, reducing the risk of collisions. The SHA family includes SHA-1, SHA-224, SHA-256, SHA-384, and SHA-512. While considered collision-resistant, it's important to recognize their vulnerability to other potential exploits.
+
+# Rainbow Tables
+
+A rainbow table is a collection of pre-generated hash values and their corresponding plaintext counterparts. Functioning akin to dictionaries of weak passwords, attackers gaining access to an organization's password database can utilize rainbow tables to systematically compare hash values against all potential plaintext entries.
+
+## Enhancing Security with Salting
+
+In the quest for more robust hash functions, especially in the face of collision and rainbow table attacks, the adoption of larger digest functions is a common strategy. However, it's essential to acknowledge that no security control is infallible.
+
+Enter the concept of "salting." This additional layer of defense involves introducing a random string of characters to the data before the hashing process. The inclusion of these extra characters contributes to the creation of a more unique hash value, fortifying the data against rainbow table attacks.
+
+For example, consider a password database with multiple hashed entries for the ubiquitous "password." Through the use of salting, each hashed entry becomes distinctly different, thwarting an attacker's attempt to find matching values for "password" in the database.
+![image](https://github.com/Shadowsweep/Google_cybersecuritylabs/assets/122604770/0c22547c-7374-4579-8f8b-bca4674597dc)
+# Task 1: Generate Hashes for Files
+
+In this task, you will navigate to the home directory `/home/analyst` and work with two files, `file1.txt` and `file2.txt`. Follow the steps below:
+
+1. List the contents of the directory using the `ls` command.
+   
+2. Display the contents of `file1.txt` using the `cat` command:
+   ```bash
+   cat file1.txt
+   ```
+
+3. Display the contents of `file2.txt` using the `cat` command:
+   ```bash
+   cat file2.txt
+   ```
+
+   - Question: Do the contents of the two files appear identical when using the `cat` command?
+     - [ ] No
+     - [x] Yes
+
+4. Although the contents appear identical, you need to generate the hash for each file to confirm if they are actually different.
+
+5. Generate the SHA-256 hash for `file1.txt` using the `sha256sum` command:
+   ```bash
+   sha256sum file1.txt
+   ```
+
+6. Repeat the same step for `file2.txt`:
+   ```bash
+   sha256sum file2.txt
+   ```
+
+   - Question: Do both files produce the same generated hash value?
+     - [ ] No
+     - [x] Yes
+
+Review the generated hashes to examine the differences in the hash values for the contents of the two files.
+
++
+# Task 2: Compare Hashes
+
+In this task, you will compare hashes generated using the sha256sum command for two separate files, file1.txt and file2.txt.
+
+## Steps:
+
+1. Generate the hash for file1.txt and save it to file1hash:
+   ```
+   sha256sum file1.txt >> file1hash
+   ```
+
+2. Repeat the process for file2.txt and save the hash to file2hash:
+   ```
+   sha256sum file2.txt >> file2hash
+   ```
+
+3. Manually compare hash values using the cat command:
+   ```
+   cat file1hash
+   cat file2hash
+   ```
+
+4. Use the cmp command to highlight byte-by-byte differences:
+   ```
+   cmp file1hash file2hash
+   ```
+
+5. Review the output to identify the first difference reported by the cmp command.
+
+## Observation:
+
+- Despite the apparent similarity in content between file1.txt and file2.txt, the hashes in file1hash and file2hash files are different.
+- The cmp command will indicate the first differing character and line.
+
+## Question:
+
+Based on the hash values, is file1.txt different from file2.txt?
+
+- [ ] Yes
+- [x] No
+
+**Note:** The comparison reveals that the hashes differ, emphasizing a distinction between the two files.
+
+---
+
+
+
