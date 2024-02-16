@@ -209,5 +209,17 @@ Implementing MFA is a robust security measure, particularly in cloud environment
 This document delves into the concept and implementation of Multi-Factor Authentication (MFA) as a robust security measure, building upon the benefits of Single Sign-On (SSO). MFA requires users to authenticate their identity through two or three factors, including something they know (e.g., username and password), something they have (e.g., a one-time passcode), and something they are (e.g., biometric features). In cloud environments, where the risk of unauthorized access is heightened, MFA serves as a critical safeguard by demanding multiple, challenging-to-replicate forms of identification. Explore the effective utilization of MFA to enhance authentication security in cloud-based systems.
 ![image](https://github.com/Shadowsweep/Google_cybersecuritylabs/assets/122604770/e82487b8-cfc3-4c99-bea6-fba01758d45d)
 
+Discretionary Access Control (DAC)
+DAC is typically applied when a data owner decides appropriate levels of access. One example of DAC is when the owner of a Google Drive folder shares editor, viewer, or commentor access with someone else.
+
+A system administrator assigning users to specific roles that have predefined access levels.
+Role-Based Access Control (RBAC)
+RBAC is used when authorization is determined by a user's role within an organization. For example, a user in the marketing department may have access to user analytics but not network administration.
+
+Access control technologies
+Users often experience authentication and authorization as a single, seamless experience. In large part, that’s due to access control technologies that are configured to work together. These tools offer the speed and automation needed by administrators to monitor and modify access rights. They also decrease errors and potential risks.
+
+An organization's IT department sometimes develops and maintains customized access control technologies on their own. A typical IAM or AAA system consists of a user directory, a set of tools for managing data in that directory, an authorization system, and an auditing system. Some organizations create custom systems to tailor them to their security needs. However, building an in-house solution comes at a steep cost of time and other resources.
+
 
 
